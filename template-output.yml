@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  app1:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location: https://s3.amazonaws.com/aws-sam-nested-application-packages/449453b40adb52a0cff6f8115ca94139.template
+  app2:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location: https://s3.amazonaws.com/aws-sam-nested-application-packages/5d64c93361980ac4e191021e5b1a4b3e.template

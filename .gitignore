@@ -1,0 +1,5 @@
+.idea
+vendor
+.DS_Store
+handlers/*/app1
+handlers/*/app2
