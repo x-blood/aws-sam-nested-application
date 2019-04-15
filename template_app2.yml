@@ -3,9 +3,9 @@ Transform: AWS::Serverless-2016-10-31
 
 Resources:
   SandboxFunction:
-      Type: AWS::Serverless::Function
-      Properties:
-        FunctionName: app2
-        CodeUri: handlers/app2
-        Handler: sandbox
-        Runtime: go1.x
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: app2
+      CodeUri: handlers/app2
+      Handler: app2
+      Runtime: go1.x
