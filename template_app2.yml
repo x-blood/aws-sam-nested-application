@@ -1,6 +1,21 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 
+Parameters:
+  Stage:
+    Type: String
+    Default: dev
+  BucketTest:
+    Type: String
+
+Globals:
+  Function:
+    Runtime: go1.x
+    Timeout: 900
+    Environment:
+      Variables:
+        STAGE: !Ref Stage
+
 Resources:
   SandboxFunction:
     Type: AWS::Serverless::Function
@@ -8,4 +23,3 @@ Resources:
       FunctionName: app2
       CodeUri: handlers/app2
       Handler: app2
-      Runtime: go1.x

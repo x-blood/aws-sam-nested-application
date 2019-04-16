@@ -7,7 +7,7 @@ import (
 )
 
 func HandleRequest(ctx context.Context) (string, error) {
-	return fmt.Sprintf("App1!"), nil
+	return fmt.Sprintf("App1! version_2"), nil
 }
 
 func main() {

@@ -1,6 +1,11 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 
+Parameters:
+  Stage:
+    Type: String
+    Default: test
+
 Resources:
   app1:
     Type: AWS::Serverless::Application
@@ -10,3 +15,11 @@ Resources:
     Type: AWS::Serverless::Application
     Properties:
       Location: ./template_app2.yml
+      Parameters:
+        Stage: !Ref Stage
+        BucketTest: !Ref S3Bucket
+
+  S3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: aws-sam-nested-application-test-bucket-0-001
