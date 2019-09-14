@@ -8,6 +8,10 @@ mv ./app1 ./handlers/app1/
 GOOS=linux go build ./handlers/app2/app2.go
 mv ./app2 ./handlers/app2/
 
+# Build api1
+GOOS=linux go build ./handlers/api1/api1.go
+mv ./api1 ./handlers/api1/
+
 # Create Package
 aws cloudformation package \
   --template-file template.yml \

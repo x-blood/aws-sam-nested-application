@@ -4,3 +4,4 @@ vendor
 template-output.yml
 handlers/*/app1
 handlers/*/app2
+handlers/*/api1

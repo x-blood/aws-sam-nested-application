@@ -25,6 +25,12 @@ Resources:
       CodeUri: handlers/api1
       Handler: api1
       Runtime: go1.x
+      Events:
+        HttpGet:
+          Type: Api
+          Properties:
+            Path: '/v1/test1'
+            Method: Get
 
   S3Bucket:
       Type: AWS::S3::Bucket
