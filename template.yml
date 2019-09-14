@@ -7,10 +7,17 @@ Parameters:
     Default: test
 
 Resources:
+  ApiGatewayApi1:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: dev
+      Name: api1
+
   app1:
     Type: AWS::Serverless::Application
     Properties:
       Location: ./template_app1.yml
+
   app2:
     Type: AWS::Serverless::Application
     Properties:
@@ -18,6 +25,7 @@ Resources:
       Parameters:
         Stage: !Ref Stage
         BucketTest: !Ref S3Bucket
+
   api1:
     Type: AWS::Serverless::Function
     Properties:
@@ -29,6 +37,7 @@ Resources:
         HttpGet:
           Type: Api
           Properties:
+            RestApiId: !Ref ApiGatewayApi1
             Path: '/v1/test1'
             Method: Get
 

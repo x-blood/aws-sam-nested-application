@@ -2,6 +2,20 @@ AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 
 Resources:
+  ApiGatewayApi2:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: dev
+      Name: api2
+
+#  ApiGatewayApi2BathPathMapping:
+#    Type: AWS::ApiGateway::BasePathMapping
+#    Properties:
+#      DomainName:
+#      RestApiId: !Ref ApiGatewayApi2
+#      BasePath: /v1/app2
+#      Stage: !Ref ApiGatewayApi2.Stage
+
   App1Function:
     Type: AWS::Serverless::Function
     Properties:
@@ -9,3 +23,18 @@ Resources:
       CodeUri: handlers/app1
       Handler: app1
       Runtime: go1.x
+
+  api2:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: api2
+      CodeUri: handlers/api1
+      Handler: api1
+      Runtime: go1.x
+      Events:
+        HttpGet:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGatewayApi2
+            Path: '/v1/test2'
+            Method: Get
