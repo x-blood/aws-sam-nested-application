@@ -18,6 +18,13 @@ Resources:
       Parameters:
         Stage: !Ref Stage
         BucketTest: !Ref S3Bucket
+  api1:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: api1
+      CodeUri: handlers/api1
+      Handler: api1
+      Runtime: go1.x
 
   S3Bucket:
       Type: AWS::S3::Bucket

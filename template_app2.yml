@@ -24,7 +24,3 @@ Resources:
       CodeUri: handlers/app2
       Handler: app2
 
-  S3Bucket2001:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: aws-sam-nested-application-test-bucket-2-001
